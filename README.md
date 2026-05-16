@@ -16,25 +16,103 @@ Plugin jQuery para transformar tablas HTML estáticas en grillas interactivas co
 
 ---
 
+## Repositorio
+
+```
+https://github.com/kikeisa/reservar-center
+```
+
+## Clonar y configurar el proyecto
+
+Sigue estos pasos para tener el proyecto corriendo en tu máquina local desde cero:
+
+**1. Clonar el repositorio**
+```bash
+git clone https://github.com/kikeisa/reservar-center.git
+cd reservar-center
+```
+
+**2. Instalar dependencias PHP y Node**
+```bash
+composer install
+npm install
+```
+
+**3. Configurar el entorno**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+Edita el archivo `.env` con los datos de tu base de datos:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=reservar_center
+DB_USERNAME=root
+DB_PASSWORD=tu_password
+```
+
+**4. Crear la base de datos y ejecutar migraciones**
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+**5. Compilar assets y levantar el servidor**
+```bash
+npm run build
+php artisan serve
+```
+
+La aplicación estará disponible en `http://localhost:8000`
+
+---
+
+## Flujo de trabajo con Git
+
+Una vez clonado, este es el flujo recomendado para contribuir:
+
+**Antes de empezar — traer los últimos cambios**
+```bash
+git pull origin main
+```
+
+**Crear una rama para tu funcionalidad o corrección**
+```bash
+git checkout -b feat/nombre-de-la-funcionalidad
+```
+
+**Hacer cambios, revisar y confirmar**
+```bash
+git status                        # ver archivos modificados
+git add archivo.php               # agregar archivos específicos
+git add .                         # o agregar todos
+git commit -m "feat: descripción clara del cambio"
+```
+
+**Enviar la rama al repositorio remoto**
+```bash
+git push -u origin feat/nombre-de-la-funcionalidad
+```
+
+**Fusionar a main cuando esté listo**
+```bash
+git checkout main
+git pull origin main
+git merge feat/nombre-de-la-funcionalidad
+git push origin main
+```
+
+> **Importante:** nunca subas el archivo `.env` al repositorio. Está excluido por `.gitignore` y contiene credenciales sensibles.
+
+---
+
 ## Requisitos
 
 - PHP 8.2+
 - Composer
 - MySQL 8+
-
-## Instalación
-
-```bash
-composer install
-cp .env.example .env
-php artisan key:generate
-
-# Configurar DB_* en .env, luego:
-php artisan migrate
-php artisan db:seed
-npm install && npm run build
-php artisan serve
-```
 
 ## Credenciales por defecto (seed)
 
