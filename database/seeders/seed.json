@@ -1,0 +1,83 @@
+{
+  "_notes": "Datos con inconsistencias intencionales para probar robustez del seeder",
+  "users": [
+    {
+      "name": "Carlos Estándar",
+      "email": "carlos@example.com",
+      "password": "password",
+      "role": "cliente",
+      "plan": "standard"
+    },
+    {
+      "name": "María Premium",
+      "email": "maria@example.com",
+      "password": "password",
+      "role": "cliente",
+      "plan": "premium"
+    },
+    {
+      "name": "Sin plan definido",
+      "email": "sinplan@example.com",
+      "password": "password",
+      "role": "cliente"
+    },
+    {
+      "name": "Admin del sistema",
+      "email": "recarrillomejia89@gmail.com",
+      "password": "Admin2026#",
+      "role": "super_admin",
+      "plan": "premium"
+    }
+  ],
+  "services": [
+    {
+      "name": "Consulta General",
+      "duration_minutes": 60,
+      "price": "150000.00",
+      "professional_id": 1,
+      "non_refundable": false
+    },
+    {
+      "name": "Sesión Terapia Breve",
+      "duration_minutes": 30,
+      "price": 80000,
+      "professional_id": 2,
+      "non_refundable": false
+    },
+    {
+      "name": "Paquete Sin Reembolso",
+      "duration_minutes": 90,
+      "price": 250000,
+      "professional_id": 1,
+      "non_refundable": true
+    },
+    {
+      "name": "Asesoría Express",
+      "duration_minutes": "45",
+      "price": "95000",
+      "professional_id": 3
+    }
+  ],
+  "reservations": [
+    {
+      "_comment": "Reserva futura válida para Carlos",
+      "user_email": "carlos@example.com",
+      "service_index": 0,
+      "starts_at": "2026-06-15 09:00:00"
+    },
+    {
+      "_comment": "Reserva futura válida para María",
+      "user_email": "maria@example.com",
+      "service_index": 1,
+      "starts_at": "2026-06-16T10:30:00"
+    },
+    {
+      "_comment": "Reserva cancelada antigua — no cuenta para límite",
+      "user_email": "carlos@example.com",
+      "service_index": 2,
+      "starts_at": "2026-05-10 08:00:00",
+      "status": "cancelled",
+      "refund_amount": 0
+    }
+  ]
+}
